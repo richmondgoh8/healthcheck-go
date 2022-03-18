@@ -1,0 +1,50 @@
+consumes:
+- application/json
+host: localhost
+info:
+  contact:
+    email: richmondgoh@gmail.com
+    name: Richmond Goh
+    url: http://rlc4u.com
+  description: the purpose of this application is to provide a simple health endpoint
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+  termsOfService: there are no TOS at this moment, use at your own risk we take no
+    responsibility
+  title: Health API.
+  version: 0.0.1
+paths:
+  /health:
+    get:
+      consumes:
+      - application/json
+      operationId: HealthRequest
+      parameters:
+      - format: int64
+        in: query
+        name: isListening
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/HealthResponse'
+      schemes:
+      - http
+      summary: Lists whether ping is okay.
+      tags:
+      - health
+produces:
+- application/json
+responses:
+  HealthResponse:
+    description: ""
+    headers:
+      status:
+        format: int64
+        type: integer
+schemes:
+- http
+swagger: "2.0"
